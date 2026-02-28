@@ -463,7 +463,7 @@
                                 <div class="bg-it-works2">
                                     
                                 <div class="ruler-card">
-                                        <div class="ruler-title"><span>EMI Calculator for </span><h3> Personal Loan</h3></div>
+                                        <div class="ruler-title"><span>EMI Calculator for </span><h3> Personal Loan</h3><span>Minimum loan amount is 50,000 Rupees</span></div>
 
 
                                     <div class="calculator-box">
@@ -471,34 +471,34 @@
                                     <!-- Loan Amount -->
                                     <div class="span-prices">
                                         <span>Loan Amount</span>
-                                        <input class="input-valu" style="text-align: end;" type="number" id="loanInput" value="100000">
+                                        <input class="input-valu" style="text-align: end;" type="number" id="loanInput" value="50000">
                                     </div>
                                     <div class="ruler-wrapper">
                                         <div class="ruler-track"></div>
                                         <div class="ruler-progress" id="progressLoan"></div>
-                                        <input type="range" min="100000" max="10000000" step="0" value="100000" id="loanRange">
+                                        <input type="range" min="50000" max="10000000" step="0" value="50000" id="loanRange">
                                     </div>
 
                                     <!-- Interest Rate -->
                                     <div class="span-prices">
                                         <span>Interest Rate</span>
-                                        <input class="input-valu"  style="text-align: end;" type="number" id="rateInput" value="7" >
+                                        <input class="input-valu"  style="text-align: end;" type="number" id="rateInput" value="7" min="1" max="42" step="0.01">
                                     </div>
                                     <div class="ruler-wrapper">
                                         <div class="ruler-track"></div>
                                         <div class="ruler-progress" id="progressRate"></div>
-                                        <input type="range" min="0" max="20" step="0.1" value="7" id="rateRange">
+                                        <input type="range" min="1" max="42" step="0.01" value="7" id="rateRange">
                                     </div>
 
                                     <!-- Tenure -->
                                     <div class="span-prices">
                                         <span>Tenure (Year)</span>
-                                        <input class="input-valu"  style="text-align: end;" type="number" id="tenureInput" value="3">
+                                        <input class="input-valu"  style="text-align: end;" type="number" id="tenureInput" value="3" min="1" max="7">
                                     </div>
                                     <div class="ruler-wrapper">
                                         <div class="ruler-track"></div>
                                         <div class="ruler-progress" id="progressTenure"></div>
-                                        <input type="range" min="0" max="360" step="1" value="3" id="tenureRange">
+                                        <input type="range" min="1" max="7" step="1" value="3" id="tenureRange">
                                     </div>
 
                                     </div>
@@ -527,12 +527,12 @@
                                                     <span class="monthly-emi  " id="emiValue">0</span>
                                                     <div class="single-total d-flex align-items-sm-center justify-content-between">
                                                             <h6><span class="float-left">Principle Amount:</span></h6>
-                                                            <h6 style="color: #1e40a2;"><span id="principalValue" class="float-right">100000</span></h6>
+                                                            <h6 style="color: #1e40a2;"><span id="principalValue" class="float-right">50000</span></h6>
                                                     </div>
 
                                                         <div class="single-total d-flex align-items-sm-center justify-content-between">
                                                             <h6><span class="float-left">Total Interest:</span></h6>
-                                                            <h6 style="color: #1e40a2;"><span id="interestValue" class="float-right">100000</span></h6>
+                                                            <h6 style="color: #1e40a2;"><span id="interestValue" class="float-right">50000</span></h6>
                                                     </div>
                                                     
                                                     <div class="single-total d-flex align-items-sm-center justify-content-between">
@@ -559,9 +559,14 @@
 <script>
 document.addEventListener("DOMContentLoaded", function () {
 
-  const MAX_LOAN = 250000000; // 25 Crore
+    const MAX_LOAN = 250000000; // 25 Crore
+    const MIN_LOAN = 50000; // 50,000
+    const MAX_TENURE = 7; // years
+    const MIN_TENURE = 1; // years
+    const MAX_RATE = 42; // percent
+    const MIN_RATE = 1; // percent
 
-  const loanRange = document.getElementById("loanRange");
+    const loanRange = document.getElementById("loanRange");
   const rateRange = document.getElementById("rateRange");
   const tenureRange = document.getElementById("tenureRange");
 
@@ -574,7 +579,13 @@ document.addEventListener("DOMContentLoaded", function () {
   const interestValue = document.getElementById("interestValue");
   const totalValue = document.getElementById("totalValue");
 
-  function updateProgress(slider, progressId) {
+    loanRange.min = MIN_LOAN;
+    tenureRange.max = MAX_TENURE;
+    tenureRange.min = MIN_TENURE;
+    rateRange.max = MAX_RATE;
+    rateRange.min = MIN_RATE;
+
+    function updateProgress(slider, progressId) {
     const percent =
       ((slider.value - slider.min) / (slider.max - slider.min)) * 100;
     document.getElementById(progressId).style.width = percent + "%";
@@ -628,10 +639,10 @@ document.addEventListener("DOMContentLoaded", function () {
     calculateEMI();
   });
 
-  rateRange.addEventListener("input", () => {
-    rateInput.value = rateRange.value;
-    calculateEMI();
-  });
+    rateRange.addEventListener("input", () => {
+        rateInput.value = Number(rateRange.value).toFixed(2);
+        calculateEMI();
+    });
 
   tenureRange.addEventListener("input", () => {
     tenureInput.value = tenureRange.value;
@@ -639,26 +650,36 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 
   /* INPUT → SLIDER */
-  loanInput.addEventListener("input", () => {
+    loanInput.addEventListener("input", () => {
     if (loanInput.value.trim() === "") return;
     let val = Number(loanInput.value);
-    if (val > MAX_LOAN) val = MAX_LOAN;
+        if (val > MAX_LOAN) val = MAX_LOAN;
+        if (val < MIN_LOAN) val = MIN_LOAN;
     loanInput.value = val;
     loanRange.value = val;
     calculateEMI();
   });
 
-  rateInput.addEventListener("input", () => {
-    if (rateInput.value.trim() === "") return;
-    rateRange.value = rateInput.value;
-    calculateEMI();
-  });
+    rateInput.addEventListener("input", () => {
+        if (rateInput.value.trim() === "") return;
+        let val = Number(rateInput.value);
+        if (val > MAX_RATE) val = MAX_RATE;
+        if (val < MIN_RATE) val = MIN_RATE;
+        val = Math.round(val * 100) / 100;
+        rateInput.value = val.toFixed(2);
+        rateRange.value = val;
+        calculateEMI();
+    });
 
-  tenureInput.addEventListener("input", () => {
-    if (tenureInput.value.trim() === "") return;
-    tenureRange.value = tenureInput.value;
-    calculateEMI();
-  });
+    tenureInput.addEventListener("input", () => {
+        if (tenureInput.value.trim() === "") return;
+        let val = Number(tenureInput.value);
+        if (val > MAX_TENURE) val = MAX_TENURE;
+        if (val < MIN_TENURE) val = MIN_TENURE;
+        tenureInput.value = val;
+        tenureRange.value = val;
+        calculateEMI();
+    });
 
   calculateEMI();
 });
