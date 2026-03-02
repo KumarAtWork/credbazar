@@ -158,7 +158,7 @@
  <!-- banner Start -->
 
       <section class=" ">
-        <div class="bg-containers" style="background-image: url(assets/images/logos/bg-personal-loan.jpg);background-repeat: no-repeat;background-position: center;background-size: cover;">
+        <div class="bg-containers" style="background-image: url(assets/images/logos/bg-personal-loan.jpg);">
             <div class="container">
                     <div class="row align-items-center">
                         <div class="col-md-8">
@@ -190,11 +190,11 @@
        <div class="bg-for-sticky-buttons">
             <div class="container">
                 <ul class="d-flex d-fl-min">
-                    <li><a href="#getquotes">Get Quotes</a></li>
+                    <li><a href="#getquotes" class="active">Apply Now</a></li>
+                    <li><a href="#calculatour">EMI Calculator</a></li>
                     <li><a href="#overview">Overview</a></li>
                     <li><a href="#loantype">Loan Types</a></li>
                     <li><a href="#features">Features</a></li>
-                    <li><a href="#calculatour">Calculator</a></li>
                     <li><a href="#eligibility">Eligibility</a></li>
                     <li><a href="#howtodo">Steps</a></li>
                     <li><a href="#faqs">FAQs</a></li>
@@ -218,7 +218,7 @@
                             <div class="col-12 col-sm-12 col-md-6 col-lg-3">
                                 <div class="form-group">
                                     <label for="LoanAmount">Desired Loan Amount</label>
-                                    <input name="LoanAmount" type="tel" id="LoanAmount" minlength="6" maxlength="18" class="form-control NumericFormat required" data-d-group="2" value="" aria-required="true">
+                                    <input name="LoanAmount" type="tel" id="LoanAmount" minlength="5" maxlength="7" class="form-control NumericFormat required" data-d-group="2" value="" aria-required="true" min="10000" max="1000000" pattern="^[1-9]\d*$" title="Enter a valid amount without leading zeros">
                                 </div>
                             </div>
                             <div class="col-12 col-sm-12 col-md-6 col-lg-3">
@@ -234,7 +234,7 @@
                             <div class="col-12 col-sm-12 col-md-6 col-lg-3">
                                 <div class="form-group">
                                     <label for="monthlyIncome">Monthly Income</label>
-                                    <input name="monthlyIncome" type="tel" id="monthlyIncome" minlength="6" maxlength="18" class="form-control NumericFormat required" data-d-group="2" value="" aria-required="true">
+                                    <input name="monthlyIncome" type="tel" id="monthlyIncome" minlength="5" maxlength="6" class="form-control NumericFormat required" data-d-group="2" value="" aria-required="true" min="10000" max="500000" pattern="^[1-9]\d*$" title="Enter a valid amount without leading zeros">
                                 </div>
                             </div>
                             <div class="col-12 col-sm-12 col-md-6 col-lg-3">
@@ -246,20 +246,27 @@
                             <div class="col-12 col-sm-12 col-md-6 col-lg-3">
                                 <div class="form-group">
                                     <label for="email">Mail Id</label>
-                                    <input autocomplete="off" name="email" type="email" id="email" minlength="6" maxlength="18" class="form-control NumericFormat required" data-d-group="2" value="" aria-required="true">
+                                    <input autocomplete="off" name="email" type="email" id="email" minlength="6" maxlength="28" class="form-control NumericFormat required" data-d-group="2" value="" aria-required="true">
                                 </div>
                             </div>
                                             <div class="col-12 col-sm-12 col-md-6 col-lg-3">
                                 <div class="form-group">
                                     <label for="pan">PAN No.</label>
-                                    <input autocomplete="off" type="text" class="form-control text-uppercase" required="" placeholder="" minlength="10" maxlength="10" value="" id="pan" name="pan">
+                                    <input autocomplete="off" type="text" class="form-control text-uppercase" required="" placeholder="" minlength="10" maxlength="10" value="" id="pan" name="pan" pattern="[A-Za-z]{5}[0-9]{4}[A-Za-z]{1}" title="Enter valid PAN (e.g., ABCDE1234F)">
                                 </div>
                             </div>
 
                                             <div class="col-12 col-sm-12 col-md-6 col-lg-3">
                                 <div class="form-group">
-                                    <label for="dob">Date Of Birth</label>
-                                    <input autocomplete="off" type="date" class="form-control" required id="dob" name="dob" placeholder="YYYY-MM-DD">
+                                    <label for="dobDay">Date Of Birth</label>
+                                    <div class="d-flex align-items-center" style="gap: 6px;">
+                                        <input autocomplete="off" type="text" class="form-control" required id="dobDay" inputmode="numeric" maxlength="2" pattern="\d{2}" title="Enter 2-digit day" placeholder="DD" style="max-width: 70px;">
+                                        <span>/</span>
+                                        <input autocomplete="off" type="text" class="form-control" required id="dobMonth" inputmode="numeric" maxlength="2" pattern="\d{2}" title="Enter 2-digit month" placeholder="MM" style="max-width: 70px;">
+                                        <span>/</span>
+                                        <input autocomplete="off" type="text" class="form-control" required id="dobYear" inputmode="numeric" maxlength="4" pattern="\d{4}" title="Enter 4-digit year" placeholder="YYYY" style="max-width: 90px;">
+                                    </div>
+                                    <input type="hidden" id="dob" name="dob" value="">
                                 </div>
                             </div>
                                <div class="col-12 col-sm-12 col-md-6 col-lg-3">
@@ -271,13 +278,25 @@
                              <div class="col-12 col-sm-12 col-md-6 col-lg-3">
                                 <div class="form-group">
                                     <label for="city">City</label>
-                                    <input name="city" minlength="5" type="text" id="city" maxlength="50" class="form-control required" value="" aria-required="true">
+                                    <input name="city" minlength="3" type="text" id="city" maxlength="50" class="form-control required" value="" aria-required="true">
                                 </div>
                             </div>
                             <div class="col-12 col-sm-12 col-md-6 col-lg-3">
                                 <div class="form-group">
                                     <label for="pincode">City Pincode</label>
                                     <input autocomplete="off" type="tel" class="form-control text-uppercase" required="" placeholder="" minlength="6" maxlength="6" value="" id="pincode" name="pincode" onkeypress="return numOnly(event);">
+                                </div>
+                            </div>
+                            <div class="col-12 col-sm-12 col-md-6 col-lg-3">
+                                <div class="form-group">
+                                    <label for="captchaAnswer">Security Check</label>
+                                    <div class="d-flex align-items-center" style="gap: 6px;">
+                                        <span id="captchaA">0</span>
+                                        <span>+</span>
+                                        <span id="captchaB">0</span>
+                                        <span>=</span>
+                                        <input autocomplete="off" type="text" class="form-control" required id="captchaAnswer" inputmode="numeric" maxlength="2" pattern="\d{1,2}" title="Enter the sum" style="max-width: 80px;">
+                                    </div>
                                 </div>
                             </div>
                            
@@ -292,7 +311,7 @@
                                 
                                 <button class="buttonsid-col" type="submit " name="submitbutton" >
                                 
-                                    <span id="btn-text">Get Quotes</span>
+                                    <span id="btn-text">Apply Now</span>
                                    
                                 </button>
 
@@ -690,6 +709,57 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 
   calculateEMI();
+});
+</script>
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+    const form = document.getElementById("personalloanwidget");
+    const captchaA = document.getElementById("captchaA");
+    const captchaB = document.getElementById("captchaB");
+    const captchaAnswer = document.getElementById("captchaAnswer");
+
+    if (!form || !captchaA || !captchaB || !captchaAnswer) return;
+
+    function generateCaptcha() {
+        const a = Math.floor(Math.random() * 9) + 1;
+        const b = Math.floor(Math.random() * 9) + 1;
+        captchaA.textContent = a;
+        captchaB.textContent = b;
+        captchaAnswer.dataset.expected = String(a + b);
+        captchaAnswer.value = "";
+        captchaAnswer.setCustomValidity("");
+    }
+
+    function validateCaptcha() {
+        const expected = Number(captchaAnswer.dataset.expected || "0");
+        const actual = Number(captchaAnswer.value);
+        if (!captchaAnswer.value.trim()) {
+            captchaAnswer.setCustomValidity("Please solve the security check");
+            return false;
+        }
+        if (actual !== expected) {
+            captchaAnswer.setCustomValidity("Incorrect answer. Please try again.");
+            return false;
+        }
+        captchaAnswer.setCustomValidity("");
+        return true;
+    }
+
+    captchaAnswer.addEventListener("input", () => {
+        captchaAnswer.value = captchaAnswer.value.replace(/\D/g, "").slice(0, 2);
+        validateCaptcha();
+    });
+
+    form.addEventListener("submit", (e) => {
+        if (!validateCaptcha()) {
+            e.preventDefault();
+            captchaAnswer.reportValidity();
+            generateCaptcha();
+        }
+    });
+
+    generateCaptcha();
 });
 </script>
 
@@ -1173,6 +1243,103 @@ $('.clients-carousel').owlCarousel({
         600:{ items:4 },
         1000:{ items:7 }
     }
+});
+</script>
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+    const dayInput = document.getElementById("dobDay");
+    const monthInput = document.getElementById("dobMonth");
+    const yearInput = document.getElementById("dobYear");
+    const hiddenDob = document.getElementById("dob");
+
+    if (!dayInput || !monthInput || !yearInput || !hiddenDob) return;
+
+    const CURRENT_YEAR = new Date().getFullYear();
+
+    function onlyDigits(input, maxLen) {
+        input.value = input.value.replace(/\D/g, "").slice(0, maxLen);
+    }
+
+    function validateDob() {
+        const d = dayInput.value;
+        const m = monthInput.value;
+        const y = yearInput.value;
+
+        let isValid = true;
+
+        if (d.length > 0 && d.length < 2) {
+            dayInput.setCustomValidity("Enter 2-digit day");
+            isValid = false;
+        } else if (d.length === 2) {
+            const dn = Number(d);
+            if (dn < 1 || dn > 31) {
+                dayInput.setCustomValidity("Day must be 01-31");
+                isValid = false;
+            } else {
+                dayInput.setCustomValidity("");
+            }
+        } else {
+            dayInput.setCustomValidity("");
+        }
+
+        if (m.length > 0 && m.length < 2) {
+            monthInput.setCustomValidity("Enter 2-digit month");
+            isValid = false;
+        } else if (m.length === 2) {
+            const mn = Number(m);
+            if (mn < 1 || mn > 12) {
+                monthInput.setCustomValidity("Month must be 01-12");
+                isValid = false;
+            } else {
+                monthInput.setCustomValidity("");
+            }
+        } else {
+            monthInput.setCustomValidity("");
+        }
+
+        if (y.length > 0 && y.length < 4) {
+            yearInput.setCustomValidity("Enter 4-digit year");
+            isValid = false;
+        } else if (y.length === 4) {
+            const yn = Number(y);
+            if (yn < 1900 || yn > CURRENT_YEAR) {
+                yearInput.setCustomValidity("Year is out of range");
+                isValid = false;
+            } else {
+                yearInput.setCustomValidity("");
+            }
+        } else {
+            yearInput.setCustomValidity("");
+        }
+
+        if (isValid && d.length === 2 && m.length === 2 && y.length === 4) {
+            hiddenDob.value = `${d.padStart(2, "0")}/${m.padStart(2, "0")}/${y}`;
+        } else {
+            hiddenDob.value = "";
+        }
+    }
+
+    dayInput.addEventListener("input", () => {
+        onlyDigits(dayInput, 2);
+        if (dayInput.value.length === 2) monthInput.focus();
+        validateDob();
+    });
+
+    monthInput.addEventListener("input", () => {
+        onlyDigits(monthInput, 2);
+        if (monthInput.value.length === 2) yearInput.focus();
+        validateDob();
+    });
+
+    yearInput.addEventListener("input", () => {
+        onlyDigits(yearInput, 4);
+        validateDob();
+    });
+
+    dayInput.addEventListener("blur", validateDob);
+    monthInput.addEventListener("blur", validateDob);
+    yearInput.addEventListener("blur", validateDob);
 });
 </script>
 

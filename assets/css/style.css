@@ -1,5 +1,11 @@
 /* my css */
 
+.bg-containers {
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+
 
 .main_header_logo img{
     border-radius: 10px;
@@ -27,7 +33,7 @@
     z-index: 0; }
 /* .bodybg:before { content:''; width: 500px; height: 800px; background: url(../images/graphbg.png) left top no-repeat; position: absolute; 
     right: -3.5%; top: -3%; transform: rotate(-40deg); opacity: 0.05; } */
-.banner_style_one { position: relative; }
+.banner_style_one { position: relative; margin-bottom: 65px;}
 .banner_style_one .shape_one{
     position: absolute;
     right: 65px;
@@ -50,7 +56,7 @@
 .banner_style_one .banner_content{
     position: relative;
     text-align: center;
-    margin-top: 33px;
+    margin-top: 55px;
 }
 .banner_style_one .banner_content .tag_text {
     text-align: center;
@@ -5810,6 +5816,9 @@ h3.widget_title{
 
 .personal-l-banner img{
     max-width: 100%;
+    height: 260px;
+    width: auto;
+    object-fit: contain;
 }
 
 /* .personal-con {
