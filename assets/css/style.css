@@ -6585,6 +6585,10 @@ select {
 
 }
 
+.bg-forms .text-left.mt-4{
+    padding-bottom: 15px;
+}
+
 .bg-faqs img{
         box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
         border-radius: 15px;
