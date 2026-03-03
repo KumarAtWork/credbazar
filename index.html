@@ -160,34 +160,70 @@
 <section class="banner_style_one">
     
    <div class="container">
-        <div class="banner_content">
-
-            
-
-            <h1><span style="color: rgb(15, 144, 113);" >Find the Right Loan for Your Needs</span> <br>
-                 That Supports Your  Dreams and Future<br></h1>
-            <p>Quick approvals, competitive rates, and a seamless loan process.</p>
-            <div class="subscribe-inner">
-                <form action="javascript:void(0);" method="post" class="subscribe-form">
-                    <div class="form-group">
-                        <!-- <input type="email" name="email" placeholder="Enter your email"> -->
-                        <a href="personal-loan.html#getquotes" type="submit" class="btn_style_one">Connect With Us</a>
+        <div class="row align-items-center banner_hero_row">
+            <div class="col-lg-6">
+                <div class="banner_content banner_left">
+                    <h1><span style="color: rgb(15, 144, 113);" >Find the Right Loan for Your Needs</span> <br>
+                         That Supports Your  Dreams and Future<br></h1>
+                    <p>Quick approvals, competitive rates, and a seamless loan process.</p>
+                    <div class="subscribe-inner banner_cta_center">
+                        <form action="javascript:void(0);" method="post" class="subscribe-form">
+                            <div class="form-group">
+                                <!-- <input type="email" name="email" placeholder="Enter your email"> -->
+                                <a href="personal-loan.html#getquotes" type="submit" class="btn_style_one">Apply Now</a>
+                            </div>
+                        </form>
                     </div>
-                </form>
+             </div>
             </div>
-            <div class="income_chart float-bob-y" style="display: none;">
-                <div class="title_box">
-                    <img src="assets/images/resource/car-2.png" alt="">
-                    
-                    <div class="rate">Car loan</div>
+            <div class="col-lg-6 mt-4 mt-lg-0">
+                <div class="banner_emi_wrap">
+                    <div class="bg-it-works2">
+                        <div class="ruler-card">
+                            <div class="ruler-title"><span>EMI Calculator</span></div>
+                            <div class="calculator-box">
+                                <!-- Loan Amount -->
+                                <div class="span-prices">
+                                    <span>Loan Amount</span>
+                                    <input class="input-valu" style="text-align: end;" type="number" id="loanInputHero" value="25000" min="25000">
+                                </div>
+                                <div class="ruler-wrapper">
+                                    <div class="ruler-track"></div>
+                                    <div class="ruler-progress" id="progressLoanHero"></div>
+                                    <input type="range" min="25000" max="10000000" step="0" value="25000" id="loanRangeHero">
+                                </div>
+
+                                <!-- Interest Rate -->
+                                <div class="span-prices">
+                                    <span>Interest Rate</span>
+                                    <input class="input-valu" style="text-align: end;" type="number" id="rateInputHero" value="7" min="1" max="42" step="0.01">
+                                </div>
+                                <div class="ruler-wrapper">
+                                    <div class="ruler-track"></div>
+                                    <div class="ruler-progress" id="progressRateHero"></div>
+                                    <input type="range" min="1" max="42" step="0.01" value="7" id="rateRangeHero">
+                                </div>
+
+                                <!-- Tenure -->
+                                <div class="span-prices">
+                                    <span>Tenure (Year)</span>
+                                    <input class="input-valu" style="text-align: end;" type="number" id="tenureInputHero" value="3" min="1" max="20">
+                                </div>
+                                <div class="ruler-wrapper">
+                                    <div class="ruler-track"></div>
+                                    <div class="ruler-progress" id="progressTenureHero"></div>
+                                    <input type="range" min="1" max="20" step="1" value="3" id="tenureRangeHero">
+                                </div>
+                                <div class="hero-emi-row">
+                                 <h4 class="bg-h4-cal mb-4">Monthly EMI</h4>
+                                <span class="monthly-emi" id="emiValueHero">0</span>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <div class="percentage"><i class="fa-solid fa-arrow-trend-up"></i> +5%</div>
             </div>
-        
-            <div class="shape_four float-bob-x" style="display: none;"><img src="assets/images/resource/chart_4.png" alt=""></div>
-        
-            <div class="shape_five shap-fiv-wid rotate-me" style="display: none;"><img src="assets/images/icons/star_icon.png" alt=""></div>
-        
         </div>
     </div>
 </section>
@@ -282,291 +318,6 @@
         </div>
     </div>
 </section>
-<!-- Funfact Section End -->
-
-
-<!-- Funfact Section -->
-<!-- <section class="feature_section" style="background-color: #eafff3; z-index: 100;" >
-    <div class="container">
-        <div class="row">
-           <div class="col-12">
-            <div class="headings-partner text-center ">
-                  <div class="tag_text "><h6 >How It Works</h6></div>
-                  <h2>EMI Calculator</h2>
-                  <p >Measure twice, cut once. You may have a target amount, a tenure or a target EMI. When it comes to loans, no matter hour how big or small, always get an idea how it will affect your monthly finances, before you take a decision.</p>
-            </div>
-
-            <div class="col-12">
-            <div class="row mt-5 justify-content-center">
-
-                <div class="col-md-6">
-                    <div class="bg-it-works2">
-                        
-                      <div class="ruler-card">
-                            <div class="ruler-title"><span>EMI Calculator for </span><h3>  Loan</h3></div>
-                            
-
-                       
-                           
-                            <div class="calculator-box">
-
-                                     Loan Amount -->
-                                    <!-- <div class="span-prices">
-                                        <span>Loan Amount</span>
-                                        <input class="input-valu" style="text-align: end;" type="number" id="loanInput" value="10000">
-                                    </div>
-                                    <div class="ruler-wrapper">
-                                        <div class="ruler-track"></div>
-                                        <div class="ruler-progress" id="progressLoan"></div>
-                                        <input type="range" min="0" max="25000000" step="0" value="10000" id="loanRange">
-                                    </div> -->
-
-                                    <!-- Interest Rate -->
-                                    <!-- <div class="span-prices">
-                                        <span>Interest Rate</span>
-                                        <input class="input-valu"  style="text-align: end;" type="number" id="rateInput" value="7" >
-                                    </div>
-                                    <div class="ruler-wrapper">
-                                        <div class="ruler-track"></div>
-                                        <div class="ruler-progress" id="progressRate"></div>
-                                        <input type="range" min="0" max="20" step="0.1" value="7" id="rateRange">
-                                    </div> -->
-
-                                    <!-- Tenure -->
-                                    <!-- <div class="span-prices">
-                                        <span>Tenure (Months)</span>
-                                        <input class="input-valu"  style="text-align: end;" type="number" id="tenureInput" value="3">
-                                    </div>
-                                    <div class="ruler-wrapper">
-                                        <div class="ruler-track"></div>
-                                        <div class="ruler-progress" id="progressTenure"></div>
-                                        <input type="range" min="0" max="360" step="1" value="3" id="tenureRange">
-                                    </div>
-
-                                    </div> -->
-
-                            
-<!-- 
-                            <div class="emi-calu">
-                                <span>EMI Calculator for</span>
-                                <h6> loan</h6>
-                                <a href="index.html#calculators">Apply Now</a>
-                            </div>
-                           
-
-                            
-                        </div>
-
-                        
-                        
-                    </div>
-                </div>
-
-                <div class="col-md-6">
-                    <div class="bg-it-works2">
-                        <div class="bg-cards-2">
-                            <div class="inn-con-loan-con">
-                                <div class="row">
-
-                                    <div class="col-12">
-                                        <div class="first-lons">
-                                            <a href="#0">
-                                                <h4>Personal Loan EMI Calculator</h4>
-                                                <p>Measure twice, cut once. You may have a target amount, a tenure or a target EMI.
-                                                When it comes to loans, no matter hour how big or small, always get an idea how it
-                                                    will affect your monthly finances, before you take a decision.</p>
-                                            </a>
-                                        </div>
-                                    </div>
-
-                                    <div class="col-12">
-                                        <div class="first-lons">
-                                            <a href="#0">
-                                                <h4>Home Loan EMI Calculator</h4>
-                                                <p>Measure twice, cut once. You may have a target amount, a tenure or a target EMI.
-                                                   When it comes to loans, no matter hour how big or small, always get an idea how 
-                                                   it will affect your monthly finances, before you take a decision.</p>
-                                            </a>
-                                        </div>
-                                    </div>
-
-                                    <div class="col-12">
-                                        <div class="first-lons">
-                                            <a href="#0">
-                                                <h4>Business Loan EMI Calculator</h4>
-                                                <p>Measure twice, cut once. You may have a target amount, a tenure or a target EMI. When it comes to loans, no matter hour how big or small, always get an idea how it will affect your monthly finances, before you take a decision</p>
-                                            </a>
-                                        </div>
-                                    </div>
-
-                                    <div class="col-12">
-                                        <div class="first-lons">
-                                            <a href="#0">
-                                                <h4>OverDraft Loan EMI Calculator</h4>
-                                                <p>Measure twice, cut once. You may have a target amount, a tenure or a target EMI.
-                                                When it comes to loans, no matter hour how big or small, always get an idea how it
-                                                    will affect your monthly finances, before you take a decision.</p>
-                                            </a>
-                                        </div>
-                                    </div>
-
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div> -->
-
-                <!-- <div class="col-md-6 " id="calculators">
-                            <div class="bg-calculatour-inners mt-3">
-                                            <div class="inner-bg-con p-5 text-center"> -->
-                                                <!-- Output -->
-                                                <!-- <h4 class="bg-h4-cal mb-4">Monthly EMI</h4>
-                                                <span class="monthly-emi  " id="emiValue">0</span>
-                                                <div class="single-total d-flex align-items-sm-center justify-content-between">
-                                                        <h6><span class="float-left">Principle Amount:</span></h6>
-                                                        <h6 style="color: #1e40a2;"><span id="principalValue" class="float-right">100000</span></h6>
-                                                </div>
-
-                                                    <div class="single-total d-flex align-items-sm-center justify-content-between">
-                                                        <h6><span class="float-left">Total Interest:</span></h6>
-                                                        <h6 style="color: #1e40a2;"><span id="interestValue" class="float-right">100000</span></h6>
-                                                </div>
-                                                
-                                                <div class="single-total d-flex align-items-sm-center justify-content-between">
-                                                        <h6><span class="float-left">Total Payable:</span></h6>
-                                                        <h6 style="color: #1e40a2;"><span id="totalValue" class="float-right">0</span></h6>
-                                                </div>
-                                                    
-                                                
-                                            </div>
-                            </div>
-                            </div>
-
-                        
-                
-            </div>
-            </div>
-              
-
-           </div>
-        </div>
-    </div>
-</section>
-
-<script>
-document.addEventListener("DOMContentLoaded", function () {
-
-  const MAX_LOAN = 250000000; // 25 Crore
-
-  const loanRange = document.getElementById("loanRange");
-  const rateRange = document.getElementById("rateRange");
-  const tenureRange = document.getElementById("tenureRange");
-
-  const loanInput = document.getElementById("loanInput");
-  const rateInput = document.getElementById("rateInput");
-  const tenureInput = document.getElementById("tenureInput");
-
-  const emiValue = document.getElementById("emiValue");
-  const principalValue = document.getElementById("principalValue");
-  const interestValue = document.getElementById("interestValue");
-  const totalValue = document.getElementById("totalValue");
-
-  function updateProgress(slider, progressId) {
-    const percent =
-      ((slider.value - slider.min) / (slider.max - slider.min)) * 100;
-    document.getElementById(progressId).style.width = percent + "%";
-  }
-
-  function calculateEMI() {
-    let P = Number(loanRange.value);
-    let R = Number(rateRange.value);
-    let N = Number(tenureRange.value);
-
-    // ✅ Always show principal
-    principalValue.innerText = P.toLocaleString("en-IN");
-
-    // 🔴 SPECIAL CASE: Interest = 0 OR Tenure = 0
-    if (R === 0 || N === 0) {
-      emiValue.innerText = "0";
-      interestValue.innerText = "0";
-      totalValue.innerText = P.toLocaleString("en-IN");
-
-      updateProgress(loanRange, "progressLoan");
-      updateProgress(rateRange, "progressRate");
-      updateProgress(tenureRange, "progressTenure");
-      return;
-    }
-
-    // ✅ NORMAL EMI CALCULATION
-    let monthlyRate = R / 12 / 100;
-    let emi =
-      (P * monthlyRate * Math.pow(1 + monthlyRate, N)) /
-      (Math.pow(1 + monthlyRate, N) - 1);
-
-    let total = emi * N;
-    let interest = total - P;
-
-    emiValue.innerText = Math.round(emi).toLocaleString("en-IN");
-    interestValue.innerText = Math.round(interest).toLocaleString("en-IN");
-    totalValue.innerText = Math.round(total).toLocaleString("en-IN");
-
-    updateProgress(loanRange, "progressLoan");
-    updateProgress(rateRange, "progressRate");
-    updateProgress(tenureRange, "progressTenure");
-  }
-
-  /* SLIDER → INPUT */
-  loanRange.addEventListener("input", () => {
-    loanInput.value = loanRange.value;
-    calculateEMI();
-  });
-
-  rateRange.addEventListener("input", () => {
-    rateInput.value = rateRange.value;
-    calculateEMI();
-  });
-
-  tenureRange.addEventListener("input", () => {
-    tenureInput.value = tenureRange.value;
-    calculateEMI();
-  });
-
-  /* INPUT → SLIDER */
-  loanInput.addEventListener("input", () => {
-    if (loanInput.value.trim() === "") return;
-
-    let val = Number(loanInput.value);
-    if (val > MAX_LOAN) val = MAX_LOAN;
-
-    loanInput.value = val;
-    loanRange.value = val;
-    calculateEMI();
-  });
-
-  rateInput.addEventListener("input", () => {
-    if (rateInput.value.trim() === "") return;
-    rateRange.value = rateInput.value;
-    calculateEMI();
-  });
-
-  tenureInput.addEventListener("input", () => {
-    if (tenureInput.value.trim() === "") return;
-    tenureRange.value = tenureInput.value;
-    calculateEMI();
-  });
-
-  calculateEMI();
-});
-</script> --> 
-
-
-
-
-
-<!-- Funfact Section End -->
-
-
-
 
 <!-- Credit Section -->
 <section class="feature_section" style="background-color: #f1f6ff; z-index: 100;padding-top: 10px;" >
@@ -992,6 +743,133 @@ $('.clients-carousel').owlCarousel({
         600:{ items:4 },
         1000:{ items:7 }
     }
+});
+</script>
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+
+    const MAX_LOAN = 250000000; // 25 Crore
+    const MIN_LOAN = 25000; // 25,000
+    const MAX_TENURE = 20; // years
+    const MIN_TENURE = 1; // years
+    const MAX_RATE = 42; // percent
+    const MIN_RATE = 1; // percent
+
+    const loanRange = document.getElementById("loanRangeHero");
+    const rateRange = document.getElementById("rateRangeHero");
+    const tenureRange = document.getElementById("tenureRangeHero");
+
+    const loanInput = document.getElementById("loanInputHero");
+    const rateInput = document.getElementById("rateInputHero");
+    const tenureInput = document.getElementById("tenureInputHero");
+
+    const emiValue = document.getElementById("emiValueHero");
+    const principalValue = document.getElementById("principalValueHero");
+    const interestValue = document.getElementById("interestValueHero");
+    const totalValue = document.getElementById("totalValueHero");
+
+    if (!loanRange || !rateRange || !tenureRange || !loanInput || !rateInput || !tenureInput || !emiValue) return;
+
+    loanRange.min = MIN_LOAN;
+    tenureRange.max = MAX_TENURE;
+    tenureRange.min = MIN_TENURE;
+    rateRange.max = MAX_RATE;
+    rateRange.min = MIN_RATE;
+
+    function updateProgress(slider, progressId) {
+        const percent =
+            ((slider.value - slider.min) / (slider.max - slider.min)) * 100;
+        const progressEl = document.getElementById(progressId);
+        if (progressEl) progressEl.style.width = percent + "%";
+    }
+
+    function calculateEMI() {
+        let P = Number(loanRange.value);
+        let R = Number(rateRange.value);
+
+        let years = Number(tenureRange.value);
+        let N = years * 12; // YEARS → MONTHS
+
+        if (principalValue) principalValue.innerText = P.toLocaleString("en-IN");
+
+        if (R === 0 || years === 0) {
+            emiValue.innerText = "0";
+            if (interestValue) interestValue.innerText = "0";
+            if (totalValue) totalValue.innerText = P.toLocaleString("en-IN");
+
+            updateProgress(loanRange, "progressLoanHero");
+            updateProgress(rateRange, "progressRateHero");
+            updateProgress(tenureRange, "progressTenureHero");
+            return;
+        }
+
+        let monthlyRate = R / 12 / 100;
+
+        let emi =
+            (P * monthlyRate * Math.pow(1 + monthlyRate, N)) /
+            (Math.pow(1 + monthlyRate, N) - 1);
+
+        let total = emi * N;
+        let interest = total - P;
+
+        emiValue.innerText = Math.round(emi).toLocaleString("en-IN");
+        if (interestValue) interestValue.innerText = Math.round(interest).toLocaleString("en-IN");
+        if (totalValue) totalValue.innerText = Math.round(total).toLocaleString("en-IN");
+
+        updateProgress(loanRange, "progressLoanHero");
+        updateProgress(rateRange, "progressRateHero");
+        updateProgress(tenureRange, "progressTenureHero");
+    }
+
+    loanRange.addEventListener("input", () => {
+        loanInput.value = loanRange.value;
+        calculateEMI();
+    });
+
+    rateRange.addEventListener("input", () => {
+        rateInput.value = Number(rateRange.value).toFixed(2);
+        calculateEMI();
+    });
+
+    tenureRange.addEventListener("input", () => {
+        tenureInput.value = tenureRange.value;
+        calculateEMI();
+    });
+
+    loanInput.addEventListener("input", () => {
+        if (loanInput.value.trim() === "") return;
+        loanInput.value = loanInput.value.replace(/^0+/, "");
+        let val = Number(loanInput.value);
+        if (val > MAX_LOAN) val = MAX_LOAN;
+        if (val < MIN_LOAN) val = MIN_LOAN;
+        loanInput.value = val;
+        loanRange.value = val;
+        calculateEMI();
+    });
+
+    rateInput.addEventListener("input", () => {
+        if (rateInput.value.trim() === "") return;
+        let val = Number(rateInput.value);
+        if (val > MAX_RATE) val = MAX_RATE;
+        if (val < MIN_RATE) val = MIN_RATE;
+        val = Math.round(val * 100) / 100;
+        rateInput.value = val.toFixed(2);
+        rateRange.value = val;
+        calculateEMI();
+    });
+
+    tenureInput.addEventListener("input", () => {
+        if (tenureInput.value.trim() === "") return;
+        let val = Number(tenureInput.value);
+        if (val > MAX_TENURE) val = MAX_TENURE;
+        if (val < MIN_TENURE) val = MIN_TENURE;
+        tenureInput.value = val;
+        tenureRange.value = val;
+        calculateEMI();
+    });
+
+    calculateEMI();
 });
 </script>
 
