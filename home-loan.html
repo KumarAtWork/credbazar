@@ -1060,6 +1060,22 @@ document.addEventListener("DOMContentLoaded", function () {
 
 <script>
 document.addEventListener("DOMContentLoaded", function () {
+    const emiSection = document.getElementById("calculatour");
+    const whatIsSection = document.querySelector("section.over-cont");
+
+    if (!emiSection || !whatIsSection || !whatIsSection.parentNode) return;
+
+    const emiAfterWhatIs =
+        (whatIsSection.compareDocumentPosition(emiSection) & Node.DOCUMENT_POSITION_FOLLOWING) !== 0;
+
+    if (emiAfterWhatIs) {
+        whatIsSection.parentNode.insertBefore(emiSection, whatIsSection);
+    }
+});
+</script>
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
     const stickySection = document.querySelector(".bg-for-sticky-buttons");
     const stickyOffset = stickySection.offsetTop;
 

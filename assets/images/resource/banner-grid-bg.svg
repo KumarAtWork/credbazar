@@ -1,0 +1,24 @@
+<svg width="1600" height="900" viewBox="0 0 1600 900" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1600" y2="900" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#08142F"/>
+      <stop offset="0.5" stop-color="#0A1D45"/>
+      <stop offset="1" stop-color="#112A57"/>
+    </linearGradient>
+    <linearGradient id="glow" x1="120" y1="40" x2="700" y2="500" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#2E83FF" stop-opacity="0.28"/>
+      <stop offset="1" stop-color="#2E83FF" stop-opacity="0"/>
+    </linearGradient>
+    <pattern id="grid" width="120" height="120" patternUnits="userSpaceOnUse">
+      <path d="M120 0H0V120" stroke="#7EA7E8" stroke-opacity="0.12" stroke-width="1"/>
+    </pattern>
+    <pattern id="smallGrid" width="30" height="30" patternUnits="userSpaceOnUse">
+      <path d="M30 0H0V30" stroke="#7EA7E8" stroke-opacity="0.06" stroke-width="1"/>
+    </pattern>
+  </defs>
+
+  <rect width="1600" height="900" fill="url(#bg)"/>
+  <rect width="1600" height="900" fill="url(#smallGrid)"/>
+  <rect width="1600" height="900" fill="url(#grid)"/>
+  <rect width="1600" height="900" fill="url(#glow)"/>
+</svg>

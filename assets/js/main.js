@@ -250,8 +250,119 @@
 	});
 
 	//Nice Select
+	function formatCompactCurrency(value) {
+		var amount = Number(value);
+		if (isNaN(amount)) {
+			return value;
+		}
+
+		if (amount >= 10000000) {
+			var crore = amount / 10000000;
+			return "₹" + (Number.isInteger(crore) ? crore : crore.toFixed(1).replace(/\.0$/, "")) + "Cr";
+		}
+
+		if (amount >= 100000) {
+			var lakh = amount / 100000;
+			return "₹" + (Number.isInteger(lakh) ? lakh : lakh.toFixed(1).replace(/\.0$/, "")) + "L";
+		}
+
+		if (amount >= 1000) {
+			var thousand = amount / 1000;
+			return "₹" + (Number.isInteger(thousand) ? thousand : thousand.toFixed(1).replace(/\.0$/, "")) + "K";
+		}
+
+		return "₹" + amount.toLocaleString("en-IN");
+	}
+
+	function getRangeType(rangeInput) {
+		var inputId = (rangeInput.id || "").toLowerCase();
+		if (inputId.indexOf("loan") !== -1) {
+			return "loan";
+		}
+		if (inputId.indexOf("rate") !== -1) {
+			return "rate";
+		}
+		if (inputId.indexOf("tenure") !== -1) {
+			return "tenure";
+		}
+
+		var wrapper = rangeInput.closest('.ruler-wrapper');
+		if (!wrapper) {
+			return "loan";
+		}
+
+		var labelBlock = wrapper.previousElementSibling;
+		if (!labelBlock || !labelBlock.classList.contains('span-prices')) {
+			return "loan";
+		}
+
+		var labelText = (labelBlock.querySelector('span')?.textContent || "").toLowerCase();
+		if (labelText.indexOf("interest") !== -1 || labelText.indexOf("rate") !== -1) {
+			return "rate";
+		}
+		if (labelText.indexOf("tenure") !== -1 || labelText.indexOf("year") !== -1) {
+			return "tenure";
+		}
+
+		return "loan";
+	}
+
+	function formatRangeLimit(rangeInput, value) {
+		var numericValue = Number(value);
+		if (isNaN(numericValue)) {
+			return value;
+		}
+
+		var rangeType = getRangeType(rangeInput);
+		if (rangeType === "rate") {
+			return numericValue.toString().replace(/\.0+$/, "") + "%";
+		}
+		if (rangeType === "tenure") {
+			return numericValue.toString().replace(/\.0+$/, "") + "Y";
+		}
+
+		return formatCompactCurrency(numericValue);
+	}
+
+	function initEmiRangeLabels() {
+		var sliderInputs = document.querySelectorAll('.calculator-box .ruler-wrapper input[type="range"]');
+		sliderInputs.forEach(function(rangeInput) {
+			var wrapper = rangeInput.closest('.ruler-wrapper');
+			if (!wrapper) {
+				return;
+			}
+
+			var existingLimits = wrapper.nextElementSibling;
+			if (existingLimits && existingLimits.classList && existingLimits.classList.contains('ruler-limits')) {
+				return;
+			}
+
+			var minValue = rangeInput.getAttribute('min');
+			var maxValue = rangeInput.getAttribute('max');
+			if (minValue === null || maxValue === null) {
+				return;
+			}
+
+			var limitsRow = document.createElement('div');
+			limitsRow.className = 'ruler-limits';
+
+			var minLabel = document.createElement('span');
+			minLabel.className = 'ruler-min';
+			minLabel.textContent = formatRangeLimit(rangeInput, minValue);
+
+			var maxLabel = document.createElement('span');
+			maxLabel.className = 'ruler-max';
+			maxLabel.textContent = formatRangeLimit(rangeInput, maxValue);
+
+			limitsRow.appendChild(minLabel);
+			limitsRow.appendChild(maxLabel);
+			wrapper.insertAdjacentElement('afterend', limitsRow);
+		});
+	}
+
 	$(document).ready(function() {
 		$('select:not(.ignore)').niceSelect();
+		initEmiRangeLabels();
 	});
 
 	if ($('.shop-details .bxslider').length) {
